@@ -1,0 +1,53 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model person {
+  name String? @db.VarChar
+  age  Int?
+
+  @@ignore
+}
+
+model users {
+  uid       Int     @id(map: "user_pkey") @default(autoincrement()) @db.SmallInt
+  firstName String? @db.VarChar
+  lastName  String? @db.VarChar
+  address   String? @db.VarChar
+  phone     String? @db.VarChar
+  email     String? @db.VarChar
+  password  String? @db.VarChar
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model buysell {
+  buyer_id   Int?
+  seller_id  Int?
+  product_id Int?
+
+  @@ignore
+}
+
+model product {
+  pid         Int       @id @default(autoincrement()) @db.SmallInt
+  title       String?   @db.VarChar
+  catergory   String?   @db.VarChar
+  price       Int?
+  rent        Int?
+  description String?   @db.VarChar
+  dateposted  DateTime? @db.Timestamp(6)
+}
+
+model rent {
+  rent_id     Int  @default(autoincrement()) @db.SmallInt
+  product_id  Int?
+  owner_id    Int?
+  rentaker_id Int  @id
+}
