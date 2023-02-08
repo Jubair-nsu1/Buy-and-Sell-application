@@ -13,6 +13,11 @@ class Price extends Component{
     };
  
     render() {
+        const options = [
+            { value: 'Per Day', label: 'Per Day' },
+            { value: 'Per Hour', label: 'Per Hour' }
+        ]
+
         return( 
             <div class="container" style={{width:'50rem'}}>
                 <Form>
@@ -28,13 +33,13 @@ class Price extends Component{
                                 <input class="form-control" type="number" name="rent" value={this.props.inputValues.rent} onChange={this.props.handleChange}/>
                             </div>
                             <div class="col">
-                                
+                                <Select options={options} value={this.props.inputValues.rentType} onChange={this.props.handleChange}/>
                             </div>
                         </div>
                         
                     </div>
-                    <Button class="btn btn-primary" onClick={this.back}>Back</Button>{' '}
-                    <Button class="btn btn-primary" onClick={this.saveAndContinue}>Next</Button>
+                    <button class="btn btn-primary" onClick={this.back}>Back</button>{' '}
+                    <button class="btn btn-primary" onClick={this.saveAndContinue}>Next</button>
                 </Form>
             </div>
         );

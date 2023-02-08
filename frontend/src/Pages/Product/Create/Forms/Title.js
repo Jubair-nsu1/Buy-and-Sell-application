@@ -18,7 +18,7 @@ class Title extends Component{
                 <Form>
                     <h1>Select a title for your product</h1> 
                     <input class="form-control" type="text" name="title" value={this.props.inputValues.title} onChange={this.props.handleChange}/>
-                    <Button class="btn btn-primary" onClick={this.saveAndContinue}>Next</Button>
+                    <button class="btn btn-primary" onClick={this.saveAndContinue}>Next</button>
                 </Form>
             </div>
         );

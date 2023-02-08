@@ -29,8 +29,8 @@ class Categories extends Component{
                     <h1>Select categories</h1> 
                     <Select options={options} value={this.props.inputValues.options} onChange={this.props.handleChange}/>
                     
-                    <Button class="btn btn-primary" onClick={this.back}>Back</Button>{' '}
-                    <Button class="btn btn-primary" onClick={this.saveAndContinue}>Next</Button>
+                    <button class="btn btn-primary" onClick={this.back}>Back</button>{' '}
+                    <button class="btn btn-primary" onClick={this.saveAndContinue}>Next</button>
                 </Form>
             </div>
         );
