@@ -5,6 +5,7 @@
 - [Part-1](#part-1)
 - [Part-2](#part-2)
 - [Part-3](#part-3)
+- [Roadblocks](#roadblocks)
 
 </br></br>
 
@@ -56,7 +57,8 @@ The first part contains the Registration and Login feature. I created that by tb
 
 ## Part-2 
 
-This part was tricky especially the CreateProduct page which consisted of multi-pages form. Showing all product created by the user was shown using mapping. 
+This part was tricky especially the CreateProduct page which consisted of multi-pages form. At first, I created state object to store the current page number and the user's input. Then a function was created to handle the navigation between pages and update the current page number in the state. Switch case statement was used to render the appropriate page based on the current page number stored in the state. Event handlers was used to update the state with the user's input on each page.</br></br>
+Rest of part was simple like fetching product data and show in CardView. Mapping was used to create each card for each row and finally loop through the whole table. Last part was updating the product which was done by clicking the card which navigate to another page where user can edit product; and delete the product by clicking the trash icon. Update and delete was done by using the product id. 
 
 </br></br>
 
@@ -64,7 +66,7 @@ This part was tricky especially the CreateProduct page which consisted of multi-
 
 ## Part-3 
 
-This part is incomplete but could be solved by using 2 tables from database - BuySell and Rent tables. </br>
+This part is INCOMPLETE but could be solved by using 2 tables from database - BuySell and Rent tables. </br>
 1. All products created by all users can be showed by fetching data from the Product table.
 2. If an user buy or sell a product, the record will be saved in the BuySell table.
 3. If an user lent or borrow a product, the record will be saved in the Rent table.
@@ -76,4 +78,5 @@ This part is incomplete but could be solved by using 2 tables from database - Bu
 
 ## Roadblocks
 
-It was hard initially to connect GraphQl with postgres. At first I tried to connect directly, there were no responses in the Apollo server. Then after some research, I tried out Prisma client which finally solved the problem. Prisma could easily interact with database and responses were seen in Apollo server.
+It was hard initially to connect GraphQl with postgres. At first I tried to connect directly, there were no responses in the Apollo server. Then after some research, I tried out Prisma client which finally solved the problem. Prisma could easily interact with database and responses were seen in Apollo server. </br>
+On the other hand, while using RESTapi, postgres could be directly integated and the querries was done by uisng query() function. Any TypeORM was not required.
