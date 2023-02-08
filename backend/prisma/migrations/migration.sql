@@ -24,7 +24,7 @@ CREATE TABLE "product" (
     PRIMARY KEY ("productId")
 );
 
--- CreateTable
+-- CreateTable (Since a product can be under one or more categories)
 CREATE TABLE "catergory" (
     "category_name" SERIAL NOT NULL,
     "productId" INTEGER NOT NULL,
@@ -43,8 +43,8 @@ CREATE TABLE "buysell" (
 -- CreateTable
 CREATE TABLE "rent" (
     "rentId" SERIAL NOT NULL,
-    "ownerID" INTEGER NOT NULL,
-    "renterId" INTEGER NOT NULL,
+    "borrowedID" INTEGER NOT NULL,
+    "lentId" INTEGER NOT NULL,
     "productId" INTEGER NOT NULL,
 
     PRIMARY KEY ("rentId")

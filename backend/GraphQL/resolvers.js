@@ -1,4 +1,5 @@
 const { prisma } = require('./../database');
+import { hash , compare } from "bcryptjs";
 
 
 const resolvers = {
@@ -60,6 +61,7 @@ const resolvers = {
     {
         //For simplicity, no duplicate email/phone has been checked before creating an user
         registerUser: async (_, { firstName, lastName, address, phone, email, password }) => {
+            const encryptedPass = await hash(password, 10);
             const newUser = await prisma.user.create({
                 data: {
                     firstName: {firstName},
@@ -67,10 +69,28 @@ const resolvers = {
                     address: {address},
                     phone: {phone},
                     email: {email},
-                    password: {password},
+                    password: {encryptedPass},
                 },
             })    
             return newUser;
+        },
+
+        loginUser: async (_, { email , password }) => {
+            const user = await prisma.user.findUnique({
+                where: {
+                    email: {email}
+                },
+            }) 
+            if(!user){
+                throw new Error("No such user found");
+            }
+            //Comparing input password with user password
+            const valid = await compare(password, user.password);
+            // If password is not valid
+            if(!valid){
+                throw new Error("Invalid password");
+            }
+            return user;
         },
 
         addProduct: async (_, { userID, title, category, price, rent, description }) => {
@@ -86,6 +106,7 @@ const resolvers = {
             return newProduct;
         },
 
+        //Since a product can be under one or more categories
         addCategory: async (_, { productID, categoryName }) => {
             const newCategory = await prisma.category.create({
                 data: {

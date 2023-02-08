@@ -41,6 +41,11 @@ const typeDefs = gql`
         product_description: String!
     }
 
+    type Login {
+        email: String!
+        password: String!
+    }
+
     type Query {
         getUsers: [User]!
         getUser(uid: ID!): User
