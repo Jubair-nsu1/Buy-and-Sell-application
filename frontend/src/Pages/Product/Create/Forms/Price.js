@@ -20,9 +20,18 @@ class Price extends Component{
                     <div class="mb-3">
                         <input class="form-control" type="number" name="price" value={this.props.inputValues.price} onChange={this.props.handleChange}/>
                     </div>
-                    <h3>Rent</h3> 
+                     
                     <div class="mb-3">
-                        <input class="form-control" type="number" name="rent" value={this.props.inputValues.rent} onChange={this.props.handleChange}/>
+                        <div class="row">
+                            <div class="col">
+                                <h3>Rent</h3>
+                                <input class="form-control" type="number" name="rent" value={this.props.inputValues.rent} onChange={this.props.handleChange}/>
+                            </div>
+                            <div class="col">
+                                
+                            </div>
+                        </div>
+                        
                     </div>
                     <Button class="btn btn-primary" onClick={this.back}>Back</Button>{' '}
                     <Button class="btn btn-primary" onClick={this.saveAndContinue}>Next</Button>
