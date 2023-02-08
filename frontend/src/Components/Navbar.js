@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom';
 
-const Navbar = ({username}) => {   
+const Navbar = ({firstName}) => {   
   
     return (
         <nav class="navbar navbar-dark bg-dark">
@@ -12,17 +11,17 @@ const Navbar = ({username}) => {
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/">My Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Product List</a>
+                        <a class="nav-link" href="/">All Products</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/">Buy-Sell History</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            UserName
+                            {firstName}
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/">Profile</a></li>

@@ -7,8 +7,7 @@ export const Login = (props) => {
     const [password, setPassword] = useState('');
     
     const client = useApolloClient();
-    const [login, { loading, error }] = useMutation(
-        LOGIN_USER,
+    const [login, { loading, error }] = useMutation(LOGIN_USER,
         {
             onCompleted({ login }) {
               localStorage.setItem('token', login);
@@ -16,17 +15,12 @@ export const Login = (props) => {
                 client.writeData({ data: { isLoggedIn: true } });
               }
             }
-          }
+        }
     );
-    if (loading) return <p>Loading,... Please wait.</p>;
-    if (error) return <p>An error occurred</p>;
-
-
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(email);
-        console.log(password);
+        login();
     }
 
     return (
@@ -38,7 +32,6 @@ export const Login = (props) => {
                         value={email} 
                         onChange={(e) => setEmail(e.target.value)} 
                         type="email" placeholder="Email Address" 
-                        id="email" 
                         name="email" 
                     />
                 </div>    
@@ -48,11 +41,9 @@ export const Login = (props) => {
                         onChange={(e) => setPassword(e.target.value)} 
                         type="password" 
                         placeholder="Password" 
-                        id="password" 
                         name="password" 
                     />
                 </div>           
-                
                 <button class="btn btn-primary mb-2" type="submit">LOGIN</button>
             </form>
             <a>Don't have an account? </a><a style={{cursor:'pointer'}} className="link-btn" onClick={() => props.onFormSwitch('register')}>Sign up</a>
