@@ -37,7 +37,7 @@ The database contains of 5 tables. </br>
 ---
 ## Part-1 
 
-The first part contains the Registration and Login feature. I created that by tbe following steps: </br>
+The first part contains the Registration and Login feature. I created that by the following steps: </br>
 1. At first, I set up a GraphQL server with Node.js and Apollo Server, and connected it to the PostgreSQL database using Prisma Client.
 
 2. Then I defined the GraphQL schema for user authentication, including queries for retrieving and mutating user information, and a mutation for creating new users.
@@ -47,8 +47,6 @@ The first part contains the Registration and Login feature. I created that by tb
 4. After that I created the React application that utilizes Apollo Client to interact with the GraphQL server and handle user authentication.
 
 5. The registration and login functionality was implemented by sending GraphQL mutations to create and authenticate users, and storing user data in local storage.
-
-6. Error handling and form validation for user input.
 
 
 </br></br>
@@ -79,4 +77,4 @@ This part is INCOMPLETE but could be solved by using 2 tables from database - Bu
 ## Roadblocks
 
 It was hard initially to connect GraphQl with postgres. At first I tried to connect directly, there were no responses in the Apollo server. Then after some research, I tried out Prisma client which finally solved the problem. Prisma could easily interact with database and responses were seen in Apollo server. </br>
-On the other hand, while using RESTapi, postgres could be directly integated and the querries was done by uisng query() function. Any TypeORM was not required.
+On the other hand, when we use RESTapi, postgres could be directly integated and the querries was done by uisng query() function. Any TypeORM was not required.</br> 
