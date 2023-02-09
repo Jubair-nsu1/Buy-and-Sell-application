@@ -39,13 +39,9 @@ The database contains of 5 tables. </br>
 
 The first part contains the Registration and Login feature. I created that by the following steps: </br>
 1. At first, I set up a GraphQL server with Node.js and Apollo Server, and connected it to the PostgreSQL database using Prisma Client.
-
 2. Then I defined the GraphQL schema for user authentication, including queries for retrieving and mutating user information, and a mutation for creating new users.
-
 3. Then I wrote the resolvers that interact with the PostgreSQL database to execute the authentication-related queries and mutations.
-
 4. After that I created the React application that utilizes Apollo Client to interact with the GraphQL server and handle user authentication.
-
 5. The registration and login functionality was implemented by sending GraphQL mutations to create and authenticate users, and storing user data in local storage.
 
 
@@ -56,7 +52,7 @@ The first part contains the Registration and Login feature. I created that by th
 ## Part-2 
 
 This part was tricky especially the CreateProduct page which consisted of multi-pages form. At first, I created state object to store the current page number and the user's input. Then a function was created to handle the navigation between pages and update the current page number in the state. Switch case statement was used to render the appropriate page based on the current page number stored in the state. Event handlers was used to update the state with the user's input on each page.</br></br>
-Rest of part was simple like fetching product data and show in CardView. Mapping was used to create each card for each row and finally loop through the whole table. Last part was updating the product which was done by clicking the card which navigate to another page where user can edit product; and delete the product by clicking the trash icon. Update and delete was done by using the product id. 
+Rest of the part was simple like fetching product data and showing in CardView. Mapping was used to create each card for each row and finally loop through the whole table. Last part was updating the product which was done by clicking the card which navigate to another page where user can edit the selected product; and finally delete the product by clicking the trash icon. Update and delete was done by using the product id. 
 
 </br></br>
 
@@ -64,7 +60,7 @@ Rest of part was simple like fetching product data and show in CardView. Mapping
 
 ## Part-3 
 
-This part is INCOMPLETE but could be solved by using 2 tables from database - BuySell and Rent tables. </br>
+This part is INCOMPLETE but could be solved by using 3 tables from database - Product, BuySell and Rent tables. </br>
 1. All products created by all users can be showed by fetching data from the Product table.
 2. If an user buy or sell a product, the record will be saved in the BuySell table.
 3. If an user lent or borrow a product, the record will be saved in the Rent table.
@@ -76,5 +72,5 @@ This part is INCOMPLETE but could be solved by using 2 tables from database - Bu
 
 ## Roadblocks
 
-It was hard initially to connect GraphQl with postgres. At first I tried to connect directly, there were no responses in the Apollo server. Then after some research, I tried out Prisma client which finally solved the problem. Prisma could easily interact with database and responses were seen in Apollo server. </br>
-On the other hand, when we use RESTapi, postgres could be directly integated and the querries was done by uisng query() function. Any TypeORM was not required.</br> 
+It was hard initially to connect GraphQl with postgres. At first I tried to connect directly, but there were no responses in the Apollo server. Then after some research, I tried out Prisma client which finally solved the problem. Prisma could easily interact with database and responses were seen in Apollo server. </br>
+On the other hand, when we use RESTapi, postgres could be directly integrated and the SQL querries was done by uisng query() function. Any sort of TypeORM was not required in RESTapi.</br> 
